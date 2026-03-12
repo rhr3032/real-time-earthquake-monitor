@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 220 15% 96%;
+    --foreground: 222 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 12%;
+    --primary: 215 90% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 222 14% 30%;
+    --muted: 220 12% 93%;
+    --muted-foreground: 215 10% 44%;
+    --accent: 215 80% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 12% 88%;
+    --input: 220 12% 88%;
+    --ring: 215 90% 42%;
+    --chart-1: 215 90% 42%;
+    --chart-2: 200 80% 50%;
+    --chart-3: 40 90% 55%;
+    --chart-4: 0 72% 51%;
+    --chart-5: 280 65% 60%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 20% 12%;
+    --sidebar-primary: 215 90% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 222 14% 30%;
+    --sidebar-border: 220 12% 88%;
+    --sidebar-ring: 215 90% 42%;
+
+    --panel-bg: rgba(255, 255, 255, 0.88);
+    --panel-border: rgba(0, 0, 0, 0.06);
+    --panel-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --text-primary: rgba(15, 23, 42, 0.9);
+    --text-secondary: rgba(15, 23, 42, 0.55);
+    --text-tertiary: rgba(15, 23, 42, 0.35);
+    --text-ghost: rgba(15, 23, 42, 0.2);
+    --divider: rgba(0, 0, 0, 0.05);
+    --hover-bg: rgba(0, 0, 0, 0.03);
+    --selected-bg: rgba(37, 99, 235, 0.06);
+  }
+
+  .dark {
+    --background: 222 22% 5%;
+    --foreground: 210 15% 86%;
+    --card: 222 20% 7%;
+    --card-foreground: 210 15% 86%;
+    --popover: 222 20% 7%;
+    --popover-foreground: 210 15% 86%;
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 12%;
+    --secondary-foreground: 210 15% 78%;
+    --muted: 220 14% 10%;
+    --muted-foreground: 215 12% 48%;
+    --accent: 210 80% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 12%;
+    --input: 220 13% 12%;
+    --ring: 210 100% 56%;
+    --chart-1: 210 100% 56%;
+    --chart-2: 200 80% 50%;
+    --chart-3: 40 90% 55%;
+    --chart-4: 0 72% 51%;
+    --chart-5: 280 65% 60%;
+    --radius: 0.375rem;
+    --sidebar-background: 222 20% 6%;
+    --sidebar-foreground: 210 15% 86%;
+    --sidebar-primary: 210 100% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 12%;
+    --sidebar-accent-foreground: 210 15% 78%;
+    --sidebar-border: 220 13% 12%;
+    --sidebar-ring: 210 100% 56%;
+
+    --panel-bg: rgba(8, 12, 22, 0.82);
+    --panel-border: rgba(255, 255, 255, 0.04);
+    --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --text-primary: rgba(255, 255, 255, 0.88);
+    --text-secondary: rgba(255, 255, 255, 0.55);
+    --text-tertiary: rgba(255, 255, 255, 0.3);
+    --text-ghost: rgba(255, 255, 255, 0.12);
+    --divider: rgba(255, 255, 255, 0.04);
+    --hover-bg: rgba(255, 255, 255, 0.03);
+    --selected-bg: rgba(59, 130, 246, 0.08);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Glass panel */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-ghost);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: hsl(var(--background)) !important;
+  font-family: var(--font-inter), system-ui, sans-serif !important;
+}
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: var(--panel-shadow) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+.leaflet-control-zoom a {
+  background: var(--panel-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--panel-border) !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+.leaflet-control-zoom a:hover {
+  background: var(--hover-bg) !important;
+}
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+/* Tooltip overrides */
+.leaflet-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.leaflet-tooltip-top::before,
+.leaflet-tooltip-bottom::before,
+.leaflet-tooltip-left::before,
+.leaflet-tooltip-right::before {
+  display: none !important;
+}
+
+/* Zoom control positioning -- responsive */
+.leaflet-bottom.leaflet-right {
+  bottom: 12px !important;
+  right: 12px !important;
+}
+
+@media (min-width: 768px) {
+  .leaflet-bottom.leaflet-right {
+    bottom: 16px !important;
+    right: 340px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .leaflet-bottom.leaflet-right {
+    bottom: 54px !important;
+    right: 352px !important;
+  }
+}
+
+/* Pulse animation for critical markers */
+@keyframes marker-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(2.2); opacity: 0; }
+}
+.marker-pulse {
+  animation: marker-pulse 2s ease-out infinite;
+}
+
+/* Mobile-friendly touch scrolling */
+@media (max-width: 767px) {
+  .custom-scrollbar {
+    -webkit-overflow-scrolling: touch;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Safe area padding on mobile for bottom sheet */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
